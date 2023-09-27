@@ -9,6 +9,14 @@ public class ArrayInterpolator {
             throw new IllegalArgumentException("Os arrays devem ter o mesmo tamanho para interpolação.");
         }
 
-        return []
+        int[] result = new int[array1.length * 2];
+        int index = 0;
+
+        for (int i = 0; i < array1.length; i++) {
+            result[index++] = array1[i];
+            result[index++] = array2[i];
+        }
+
+        return result;
     }
 }
