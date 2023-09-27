@@ -24,6 +24,26 @@ public class ArrayInterpolatorTest {
     }
 
     @Test
+    @DisplayName("Should interpolate arrays correctly if zeros are provided")
+    public void testArraysWithZeros() {
+        int[] array = {0, 0, 0};
+        int[] array2 = {7, 8, 9};
+        int[] expected = {0, 7, 0, 8, 0, 9};
+        int[] result = arrayInterpolator.interpolateArray(array, array2);
+        assertThat(expected).isEqualTo(result);
+    }
+
+    @Test
+    @DisplayName("Should interpolate arrays correctly if empty arrays are provided")
+    public void testEmptyArrays() {
+        int[] array = {};
+        int[] array2 = {};
+        int[] expected = {};
+        int[] result = arrayInterpolator.interpolateArray(array, array2);
+        assertThat(expected).isEqualTo(result);
+    }
+
+    @Test
     @DisplayName("Should interpolate arrays correctly")
     public void testInterpolateArray() {
         int[] array1 = {1, 2, 3};
