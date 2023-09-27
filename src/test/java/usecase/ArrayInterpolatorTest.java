@@ -22,4 +22,14 @@ public class ArrayInterpolatorTest {
         int[] array2 = {4, 5, 6, 7};
         assertThatIllegalArgumentException().isThrownBy(() -> arrayInterpolator.interpolateArray(array1, array2));
     }
+
+    @Test
+    @DisplayName("Should interpolate arrays correctly")
+    public void testInterpolateArray() {
+        int[] array1 = {1, 2, 3};
+        int[] array2 = {4, 5, 6};
+        int[] expected = {1, 4, 2, 5, 3, 6};
+        int[] result = arrayInterpolator.interpolateArray(array1, array2);
+        assertThat(expected).isEqualTo(result);
+    }
 }
