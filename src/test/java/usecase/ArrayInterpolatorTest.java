@@ -14,4 +14,12 @@ public class ArrayInterpolatorTest {
     public void setUp() {
         arrayInterpolator = new ArrayInterpolator();
     }
+
+    @Test
+    @DisplayName("Should throw IllegalArgumentException when arrays with different sizes are provided")
+    public void testInterpolateArrayWithDifferentLengthArrays() {
+        int[] array1 = {1, 2, 3};
+        int[] array2 = {4, 5, 6, 7};
+        assertThatIllegalArgumentException().isThrownBy(() -> arrayInterpolator.interpolateArray(array1, array2));
+    }
 }
